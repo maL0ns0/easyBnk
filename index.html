@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./app/scss/style.css">
+  <script src="/app/js/script.js" defer></script>
   <title>Frontend Mentor | Easybank landing page</title>
 
   
@@ -22,12 +23,17 @@
 </head>
 <body>
   <header class="header">
+    
+    <div class="overlay">
+      
+    </div>
+    
     <nav class="flex flex-jc-sb flex-ai-c">
       <a href="/" class="header_logo">
         <img src="./images/logo.svg" alt="Easybank"/>
       </a>
       
-      <a href="#" class="header_menu hide-for-desktop">
+      <a id="btnHamburger" href="#" class="header_menu open hide-for-desktop">
         <span> </span>
         <span> </span>
         <span> </span>
@@ -129,6 +135,6 @@
     Coded by <a href="#">Your Name Here</a>.
   </div>
   -->
-  <script src="/app/js/script.js"></script>
+  
 </body>
 </html>
