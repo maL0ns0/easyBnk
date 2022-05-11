@@ -143,18 +143,32 @@ a:hover {
 button,
 .button {
   display: inline-block;
+  position: relative;
   padding: 0.875rem 2.1875rem;
   border-radius: 50px;
   cursor: pointer;
-  background: linear-gradient(to right, $limeGreen, $brightCyan);
+  background-image: linear-gradient(to right, $limeGreen, $brightCyan);
   border: 0;
   color: white;
   font-weight: 400;
   font-size: $font-sm;
+  overflow: hidden;
   transition: opacity 300 ease-in-out;
 
-  &:hover {
-    opacity: 0.75;
+  &::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: hsla(0, 0%, 100%, 0.25);
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+  }
+
+  &:hover::before {
+    opacity: 1;
   }
 }
 

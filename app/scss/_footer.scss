@@ -1,57 +1,136 @@
-.footer{
+.footer {
 
     background-color: $darkBlue;
     color: $white;
     padding: 2.5rem;
     text-align: center;
+    
+    .container {
+        
 
-    a{
+        @include breakpoint-up('large') {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 3fr;
+            grid-template-rows: 1fr, auto;
+            grid-template-areas: "logo links1 links2 cta"
+                "social links1 links2 copyright";
+            gap: 1rem;
+            justify-items: start;
+        }
+    }
+
+    a {
         color: white;
     }
-    
-    &_logo{
-        margin-bottom: 1.875rem;
+
+    &_logo {
+
         display: inline-block;
+
+        @include breakpoint-down('medium') {
+            margin-bottom: 1.875rem;
+        }
+
+        @include breakpoint-up('large') {
+            grid-area: logo;
+        }
     }
 
-    &_social{
-        margin-bottom: 1.875rem;
-        display: inline-block;
+    &_social {
+        
+        @include breakpoint-down('medium') {
+            margin-bottom: 1.875rem;
+        }
 
-        a:not(:last-child){
+        @include breakpoint-up('large') {
+            grid-area: social;
+            align-self: end;
+        }
+
+        a {
+            display: inline-block;
+            height: 1.25rem;
+
+            svg path{
+                transition: fill 200ms ease-in-out;
+            }
+
+            &:hover svg path{
+                fill: $limeGreen;
+            }
+        }
+
+        a:not(:last-child) {
             margin-right: 1rem;
         }
     }
 
-    &_links{
+    &_links {
 
-        display:flex;
+        display: flex;
         flex-direction: column;
         align-items: center;
+        font-size: 0.9375rem;
 
-        &.col1{
-
+        @include breakpoint-up('large') {
+            align-items: start;
+            justify-content: space-between;
         }
 
-        &.col2{
-            margin-bottom: 1.875rem;
+        &.col1 {
+            @include breakpoint-up('large') {
+                grid-area: links1;
+            }
         }
 
-        a{
+        &.col2 {
+
+            @include breakpoint-down('medium') {
+                margin-bottom: 1.875rem;
+            }
+
+            @include breakpoint-up('large') {
+                grid-area: links2;
+            }
+        }
+
+        a {
             flex: 0 0 auto;
             line-height: 2.25;
+            transition: color 200ms ease-in-out;
+
+            &:hover{
+                color: $limeGreen;
+            }
         }
     }
 
-    &_cta{
-        
-        a.button{
-            margin-bottom: 1.875rem;
+    &_cta {
+
+        @include breakpoint-up('large') {
+            grid-area: cta;
+            text-align: right;
+            justify-self: end;
+        }
+
+        a.button {
+
+            @include breakpoint-down('medium') {
+                margin-bottom: 1.875rem;
+            }
         }
     }
 
-    &_copy_right{
-        
+    &_copy_right {
+        font-size: 0.8125rem;
+        color: $grayishBlue;
+
+        @include breakpoint-up('large') {
+            grid-area: copyright;
+            align-self: end;
+            justify-self: end;
+        }
+
     }
-    
+
 }
